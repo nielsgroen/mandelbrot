@@ -1,4 +1,7 @@
-﻿namespace mandelbrot
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace mandelbrot
 {
     partial class RenderForm
     {
@@ -20,6 +23,9 @@
             base.Dispose(disposing);
         }
 
+
+ 
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -28,6 +34,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            // PictureBox
+            PictureBox pictureBox1 = new PictureBox();
+            pictureBox1.Size = new Size(210, 110);
+            pictureBox1.Location = new Point(10, 100);
+            this.Controls.Add(pictureBox1);
+
+            Bitmap flag = new Bitmap(200, 100);
+            Graphics flagGraphics = Graphics.FromImage(flag);
+            int red = 0;
+            int white = 11;
+            while (white <= 100)
+            {
+                flagGraphics.FillRectangle(Brushes.Red, 0, red, 200, 10);
+                flagGraphics.FillRectangle(Brushes.White, 0, white, 200, 10);
+                red += 20;
+                white += 20;
+            }
+            pictureBox1.Image = flag;
+
+
+
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
