@@ -16,6 +16,6 @@ namespace mandelbrot
         }
 
         // hallo
-        
+
     }
 }
