@@ -40,6 +40,26 @@ namespace mandelbrot
             pictureBox1.Location = new Point(10, 100);
             this.Controls.Add(pictureBox1);
 
+            Bitmap mandelbrotMap = new Bitmap(200, 100);
+            Graphics gr = Graphics.FromImage(mandelbrotMap);
+            Mandelbrot mandelbrot = new Mandelbrot( Color.Black );
+
+            for(int i = 0; i < 200; i++)
+            {
+                for(int j = 0; j < 100; j++)
+                {
+                    mandelbrotMap.SetPixel(3, 5, Color.Orange); // mandelbrot.calcColor(i, j, 100)
+                }
+            }
+            gr.FillRectangle(Brushes.Black, 0, 0, 200, 10);
+            gr.DrawImage(mandelbrotMap, 0, 0, mandelbrotMap.Width, mandelbrotMap.Height);
+            pictureBox1.Image = mandelbrotMap;
+            pictureBox1.Refresh();
+
+            /*PictureBox pictureBox1 = new PictureBox();
+            pictureBox1.Size = new Size(210, 110);
+            this.Controls.Add(pictureBox1);
+
             Bitmap flag = new Bitmap(200, 100);
             Graphics flagGraphics = Graphics.FromImage(flag);
             int red = 0;
@@ -51,7 +71,7 @@ namespace mandelbrot
                 red += 20;
                 white += 20;
             }
-            pictureBox1.Image = flag;
+            pictureBox1.Image = flag;*/
 
 
 
