@@ -19,9 +19,9 @@ namespace mandelbrot
         {
             int colorInt = Mandelbrot.calcIter(x, y, maxIter);
             Color result = Color.Black;
-            if (colorInt % 2 == 0)
+            if (colorInt % 2 == 0 && colorInt != maxIter)
             {
-                result = Color.Orange;
+                result = Color.White;
             }
             return result;
         }

@@ -34,42 +34,34 @@ namespace mandelbrot
         /// </summary>
         private void InitializeComponent()
         {
+            //
             // PictureBox
-            PictureBox pictureBox1 = new PictureBox();
-            pictureBox1.Size = new Size(210, 110);
-            pictureBox1.Location = new Point(10, 100);
-            this.Controls.Add(pictureBox1);
+            //
 
-            Bitmap mandelbrotMap = new Bitmap(200, 100);
-            Graphics gr = Graphics.FromImage(mandelbrotMap);
+            /**
+             * mandelbrotPB is the PictureBox holding the Bitmap : Image named mandelbrotBM
+             */
+            PictureBox mandelbrotPB = new PictureBox();
+            mandelbrotPB.Size = new Size(1000, 1000);
+            mandelbrotPB.Location = new Point(10, 100);
+            this.Controls.Add(mandelbrotPB);
+
+            Bitmap mandelbrotBM = new Bitmap(1000, 1000);
+            Graphics gr = Graphics.FromImage(mandelbrotBM);
             Mandelbrot mandelbrot = new Mandelbrot( Color.Black );
 
-            for(int i = 0; i < 200; i++)
+            
+
+
+            for(int i = 0; i < mandelbrotBM.Width; i++)
             {
-                for(int j = 0; j < 100; j++)
+                for(int j = 0; j < mandelbrotBM.Height; j++)
                 {
-                    mandelbrotMap.SetPixel(i, j, mandelbrot.calcColor(i / 100.0, j / 100.0, 100));
+                    mandelbrotBM.SetPixel(i, j, mandelbrot.calcColor((i - mandelbrotBM.Width / 2) / 100.0, (j - mandelbrotBM.Height / 2) / 100.0, 100));
                 }
             }
-            gr.DrawImage(mandelbrotMap, 0, 0, mandelbrotMap.Width, mandelbrotMap.Height);
-            pictureBox1.Image = mandelbrotMap;
-
-            /*PictureBox pictureBox1 = new PictureBox();
-            pictureBox1.Size = new Size(210, 110);
-            this.Controls.Add(pictureBox1);
-
-            Bitmap flag = new Bitmap(200, 100);
-            Graphics flagGraphics = Graphics.FromImage(flag);
-            int red = 0;
-            int white = 11;
-            while (white <= 100)
-            {
-                flagGraphics.FillRectangle(Brushes.Red, 0, red, 200, 10);
-                flagGraphics.FillRectangle(Brushes.White, 0, white, 200, 10);
-                red += 20;
-                white += 20;
-            }
-            pictureBox1.Image = flag;*/
+            gr.DrawImage(mandelbrotBM, 0, 0, mandelbrotBM.Width, mandelbrotBM.Height);
+            mandelbrotPB.Image = mandelbrotBM;
 
 
 
@@ -167,7 +159,7 @@ namespace mandelbrot
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(632, 703);
+            this.ClientSize = new System.Drawing.Size(1020, 1500);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox4);
