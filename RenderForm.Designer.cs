@@ -48,13 +48,11 @@ namespace mandelbrot
             {
                 for(int j = 0; j < 100; j++)
                 {
-                    mandelbrotMap.SetPixel(3, 5, Color.Orange); // mandelbrot.calcColor(i, j, 100)
+                    mandelbrotMap.SetPixel(i, j, mandelbrot.calcColor(i / 100.0, j / 100.0, 100));
                 }
             }
-            gr.FillRectangle(Brushes.Black, 0, 0, 200, 10);
             gr.DrawImage(mandelbrotMap, 0, 0, mandelbrotMap.Width, mandelbrotMap.Height);
             pictureBox1.Image = mandelbrotMap;
-            pictureBox1.Refresh();
 
             /*PictureBox pictureBox1 = new PictureBox();
             pictureBox1.Size = new Size(210, 110);

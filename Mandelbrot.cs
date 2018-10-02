@@ -31,7 +31,7 @@ namespace mandelbrot
         {
             double a = 0, b = 0;
             int i;
-            for (i = 0; i < maxIter || Math.Sqrt(a * a + b * b) > 2; i++)
+            for (i = 0; i < maxIter && Math.Sqrt(a * a + b * b) < 2; i++)
             {
                 double anew = a * a - b * b + x;
                 double bnew = 2 * a * b + y;
