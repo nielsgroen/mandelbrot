@@ -12,7 +12,7 @@ namespace mandelbrot
     public partial class RenderForm : Form
     {
         int maxIter;
-        double scale, centerX, centerY;
+        double scale, centerX, centerY, zoomFactor;
         Bitmap mandelbrotBM;
         PictureBox mandelbrotPB;
 
@@ -22,6 +22,7 @@ namespace mandelbrot
             this.scale = 0.01;
             this.centerX = 0;
             this.centerY = 0;
+            this.zoomFactor = 2;
             InitializeComponent();
         }
 
@@ -68,7 +69,7 @@ namespace mandelbrot
         {
             this.centerX = (e.X - (double)this.mandelbrotBM.Width / 2) * this.scale + this.centerX;
             this.centerY = (e.Y - (double)this.mandelbrotBM.Height / 2) * this.scale + this.centerY;
-            this.scale *= 0.5;
+            this.scale /= this.zoomFactor;
 
             this.textBox1.Text = this.centerX.ToString();
             this.textBox2.Text = this.centerY.ToString();
