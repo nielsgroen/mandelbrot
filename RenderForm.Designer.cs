@@ -39,34 +39,17 @@ namespace mandelbrot
             //
 
             /**
-             * mandelbrotPB is the PictureBox holding the Bitmap : Image named mandelbrotBM
+             * this.mandelbrotPB is the PictureBox holding the Bitmap : Image named this.mandelbrotBM
              */
-            PictureBox mandelbrotPB = new PictureBox();
-            mandelbrotPB.Size = new Size(1000, 1000);
-            mandelbrotPB.Location = new Point(10, 100);
-            this.Controls.Add(mandelbrotPB);
+            this.mandelbrotPB = new PictureBox();
+            this.mandelbrotPB.Size = new Size(1000, 1000);
+            this.mandelbrotPB.Location = new Point(10, 100);
+            this.mandelbrotPB.MouseClick += this.mandelbrotPB_Click;
 
-            Bitmap mandelbrotBM = new Bitmap(mandelbrotPB.Width / 2, mandelbrotPB.Height / 2);
-            Graphics gr = Graphics.FromImage(mandelbrotBM);
-            Mandelbrot mandelbrot = new Mandelbrot( Color.Black );
+            this.Controls.Add(this.mandelbrotPB);
 
-            double scale = 0.01;
-            double centerX = 0;
-            double centerY = 0;
-
-
-            for (int i = 0; i < mandelbrotBM.Width; i++)
-            {
-                for (int j = 0; j < mandelbrotBM.Height; j++)
-                {
-                    double x = (i - (double) mandelbrotBM.Width / 2) * scale + centerX;
-                    double y = (j - (double) mandelbrotBM.Height / 2) * scale + centerY;
-                    mandelbrotBM.SetPixel(i, j, mandelbrot.calcColor(x, y, 50));
-                }
-            }
-
-            gr.DrawImage(mandelbrotBM, 0, 0, mandelbrotBM.Width, mandelbrotBM.Height);
-            mandelbrotPB.Image = mandelbrotBM;
+            this.mandelbrotBM = new Bitmap(this.mandelbrotPB.Width / 2, this.mandelbrotPB.Height / 2);
+            this.redrawBitmap();
 
 
 
@@ -87,6 +70,7 @@ namespace mandelbrot
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(183, 22);
             this.textBox1.TabIndex = 0;
+            this.textBox1.Text = this.centerX.ToString();
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
@@ -114,6 +98,7 @@ namespace mandelbrot
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(183, 22);
             this.textBox2.TabIndex = 2;
+            this.textBox2.Text = this.centerY.ToString();
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label3
@@ -131,6 +116,7 @@ namespace mandelbrot
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(183, 22);
             this.textBox3.TabIndex = 4;
+            this.textBox3.Text = this.scale.ToString();
             this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label4
@@ -140,25 +126,27 @@ namespace mandelbrot
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 17);
             this.label4.TabIndex = 7;
-            this.label4.Text = "max:";
+            this.label4.Text = "Max Iteraties:";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(352, 56);
+            this.textBox4.Location = new System.Drawing.Point(400, 56);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(92, 22);
+            this.textBox4.Size = new System.Drawing.Size(135, 22);
             this.textBox4.TabIndex = 6;
+            this.textBox4.Text = this.maxIter.ToString();
             this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(464, 55);
+            this.button1.Location = new System.Drawing.Point(545, 55);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(71, 23);
             this.button1.TabIndex = 8;
             this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += this.button1_Click;
             // 
             // RenderForm
             // 

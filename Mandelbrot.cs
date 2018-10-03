@@ -15,7 +15,7 @@ namespace mandelbrot
             this.ColorSet = ColorSet;
         }
 
-        public Color calcColor(double x, double y, int maxIter)
+        public static Color calcColor(double x, double y, int maxIter)
         {
             int colorInt = Mandelbrot.calcIter(x, y, maxIter);
             Color result;
