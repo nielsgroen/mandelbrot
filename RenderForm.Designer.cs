@@ -50,13 +50,21 @@ namespace mandelbrot
             Graphics gr = Graphics.FromImage(mandelbrotBM);
             Mandelbrot mandelbrot = new Mandelbrot( Color.Black );
 
-            for(int i = 0; i < mandelbrotBM.Width; i++)
+            double scale = 0.01;
+            double centerX = 1;
+            double centerY = 1;
+
+
+            for (int i = 0; i < mandelbrotBM.Width; i++)
             {
-                for(int j = 0; j < mandelbrotBM.Height; j++)
+                for (int j = 0; j < mandelbrotBM.Height; j++)
                 {
-                    mandelbrotBM.SetPixel(i, j, mandelbrot.calcColor((i - mandelbrotBM.Width / 2) * 0.01, (j - mandelbrotBM.Height / 2) * 0.01, 100));
+                    double x = (i - (double) mandelbrotBM.Width / 2) * scale + centerX;
+                    double y = (j - (double) mandelbrotBM.Height / 2) * scale + centerY;
+                    mandelbrotBM.SetPixel(i, j, mandelbrot.calcColor(x, y, 100));
                 }
             }
+
             gr.DrawImage(mandelbrotBM, 0, 0, mandelbrotBM.Width, mandelbrotBM.Height);
             mandelbrotPB.Image = mandelbrotBM;
 
