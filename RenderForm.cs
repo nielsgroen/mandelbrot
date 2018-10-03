@@ -15,7 +15,6 @@ namespace mandelbrot
         {
             InitializeComponent();
         }
-
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -26,7 +25,7 @@ namespace mandelbrot
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        public void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -44,6 +43,14 @@ namespace mandelbrot
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
 
+        }
+        public void button1_Click(object sender, EventArgs e)
+        {
+
+            centerX = double.Parse(textBox1.Text);
+            centerY = double.Parse(textBox2.Text);
+            scale = double.Parse(textBox2.Text);
+            
         }
     }
 }

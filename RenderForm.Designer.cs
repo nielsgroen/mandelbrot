@@ -32,7 +32,7 @@ namespace mandelbrot
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        public void InitializeComponent()
         {
             //
             // PictureBox
@@ -49,11 +49,6 @@ namespace mandelbrot
             Bitmap mandelbrotBM = new Bitmap(mandelbrotPB.Width / 2, mandelbrotPB.Height / 2);
             Graphics gr = Graphics.FromImage(mandelbrotBM);
             Mandelbrot mandelbrot = new Mandelbrot( Color.Black );
-
-            double scale = 0.01;
-            double centerX = 1;
-            double centerY = 1;
-
 
             for (int i = 0; i < mandelbrotBM.Width; i++)
             {
@@ -159,6 +154,7 @@ namespace mandelbrot
             this.button1.TabIndex = 8;
             this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // RenderForm
             // 
