@@ -42,11 +42,11 @@ namespace mandelbrot
              * mandelbrotPB is the PictureBox holding the Bitmap : Image named mandelbrotBM
              */
             PictureBox mandelbrotPB = new PictureBox();
-            mandelbrotPB.Size = new Size(400, 400);
+            mandelbrotPB.Size = new Size(1000, 1000);
             mandelbrotPB.Location = new Point(10, 100);
             this.Controls.Add(mandelbrotPB);
 
-            Bitmap mandelbrotBM = new Bitmap(mandelbrotPB.Width, mandelbrotPB.Height);
+            Bitmap mandelbrotBM = new Bitmap(mandelbrotPB.Width / 2, mandelbrotPB.Height / 2);
             Graphics gr = Graphics.FromImage(mandelbrotBM);
             Mandelbrot mandelbrot = new Mandelbrot( Color.Black );
 

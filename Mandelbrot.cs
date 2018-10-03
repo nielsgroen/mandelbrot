@@ -41,5 +41,7 @@ namespace mandelbrot
             
             return i;
         }
+
+
     }
 }
