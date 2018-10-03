@@ -51,8 +51,8 @@ namespace mandelbrot
             Mandelbrot mandelbrot = new Mandelbrot( Color.Black );
 
             double scale = 0.01;
-            double centerX = 1;
-            double centerY = 1;
+            double centerX = 0;
+            double centerY = 0;
 
 
             for (int i = 0; i < mandelbrotBM.Width; i++)
@@ -61,7 +61,7 @@ namespace mandelbrot
                 {
                     double x = (i - (double) mandelbrotBM.Width / 2) * scale + centerX;
                     double y = (j - (double) mandelbrotBM.Height / 2) * scale + centerY;
-                    mandelbrotBM.SetPixel(i, j, mandelbrot.calcColor(x, y, 100));
+                    mandelbrotBM.SetPixel(i, j, mandelbrot.calcColor(x, y, 50));
                 }
             }
 
