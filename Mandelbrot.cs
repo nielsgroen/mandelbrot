@@ -19,21 +19,11 @@ namespace mandelbrot
         {
             int colorInt = Mandelbrot.calcIter(x, y, maxIter);
             Color result;
-            /* if (colorInt % 2 == 0 && colorInt != maxIter)
-            {
-                result = Color.White;
-            } */
-            int[] highIterRGB = new int[] { 255, 0, 0 }; // defining the color set
+            
+            int[] highIterRGB = new int[] { 255, 0, 0 }; // defining the color set for MaxIter and potentially other Color Sets
             int[] lowIterRGB = new int[] { 0, 255, 0 }; // idem dito
             double a = (double) colorInt / maxIter; // calculate coefficient for convex combination of high and low arrays
             int[] resultRGB = new int[3];
-            /* for (int i = 0; i < 3; i++)
-            {
-                resultRGB[i] = (int)(a * highIterRGB[i] + (1 - a) * lowIterRGB[i]);
-            } */
-            /* resultRGB[0] = (int) Math.Pow(colorInt % 255, 2) / 500 + 100;
-            resultRGB[1] = (int)Math.Pow((colorInt - 128) % 255, 2) / 500 + 100;
-            resultRGB[2] = (int)Math.Pow((colorInt - 296) % 255, 2) / 500 + 100; */
 
             if(colorScheme == "Rainbow")
             {
@@ -49,11 +39,21 @@ namespace mandelbrot
                 resultRGB[0] = (int)((Math.Sin((double)(colorInt - 80) * 0.01) + 1) * 126);
                 resultRGB[1] = (int)((Math.Sin((double)(colorInt) * 0.01) + 1) * 126);
                 resultRGB[2] = (int)((Math.Sin((double)(colorInt - 160) * 0.01) + 1) * 126);
-            } else if (colorScheme == "MaxIter")
+            }
+            else if (colorScheme == "MaxIter")
             {
                 for (int i = 0; i < 3; i++)
                 {
                     resultRGB[i] = (int)(a * highIterRGB[i] + (1 - a) * lowIterRGB[i]);
+                }
+            }
+            else if (colorScheme == "White")
+            {
+                if (colorInt % 2 == 0 && colorInt != maxIter)
+                {
+                    resultRGB[0] = 255;
+                    resultRGB[1] = 255;
+                    resultRGB[2] = 255;
                 }
             }
             else

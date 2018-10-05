@@ -64,10 +64,17 @@ namespace mandelbrot
             this.colorLB.Items.Add("Rainbow");
             this.colorLB.Items.Add("Grass");
             this.colorLB.Items.Add("MaxIter");
+            this.colorLB.Items.Add("White");
             this.colorLB.SetSelected(0, true);
             this.colorScheme = this.colorLB.GetItemText(this.colorLB.SelectedItem);
 
 
+
+
+            /**
+             * Beyond here is partially Visual Studio designer generated.
+             * LOOK AT README !
+             */
 
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
