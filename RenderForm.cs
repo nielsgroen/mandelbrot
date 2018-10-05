@@ -77,6 +77,7 @@ namespace mandelbrot
         {
             this.centerX = (e.X - (double)this.mandelbrotBM.Width / 2) * this.scale + this.centerX;
             this.centerY = (e.Y - (double)this.mandelbrotBM.Height / 2) * this.scale + this.centerY;
+            this.maxIter = int.Parse(this.textBox4.Text);
             this.zoomfactor = double.Parse(this.textBox5.Text);
             this.scale /= this.zoomfactor;
             this.colorScheme = this.colorLB.GetItemText(this.colorLB.SelectedItem);
