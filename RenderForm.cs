@@ -20,6 +20,7 @@ namespace mandelbrot
 
         public RenderForm()
         {
+            // Variabelen worden ingevuld bij initialisatie
             this.maxIter = 300;
             this.scale = 0.01;
             this.centerX = 0;
@@ -62,7 +63,7 @@ namespace mandelbrot
         {
 
         }
-        private void button1_Click(object o, EventArgs e)
+        private void button1_Click(object o, EventArgs e) // Wanneer de OK button geklikt wordt
         {
             this.centerX = double.Parse(this.textBox1.Text);
             this.centerY = double.Parse(this.textBox2.Text);
@@ -73,7 +74,7 @@ namespace mandelbrot
             this.redrawBitmap();
         }
 
-        private void mandelbrotPB_Click(object o, MouseEventArgs e)
+        private void mandelbrotPB_Click(object o, MouseEventArgs e) // Wanneer er gezoomd wordt
         {
             this.centerX = (e.X - (double)this.mandelbrotBM.Width / 2) * this.scale + this.centerX;
             this.centerY = (e.Y - (double)this.mandelbrotBM.Height / 2) * this.scale + this.centerY;
@@ -82,6 +83,7 @@ namespace mandelbrot
             this.scale /= this.zoomfactor;
             this.colorScheme = this.colorLB.GetItemText(this.colorLB.SelectedItem);
 
+            // Na het zoomen worden de waarden in de textboxen geupdate.
             this.textBox1.Text = this.centerX.ToString();
             this.textBox2.Text = this.centerY.ToString();
             this.textBox3.Text = this.scale.ToString();
@@ -90,10 +92,12 @@ namespace mandelbrot
             this.redrawBitmap();
         }
 
-        private void redrawBitmap()
+        private void redrawBitmap() // berekent opnieuw de bitmap en update de picturebox om de verandering te laten zien
         {
             Graphics gr = Graphics.FromImage(this.mandelbrotBM);
-            // Mandelbrot mandelbrot = new Mandelbrot( Color.Black );
+
+            // Voor elke pixel worden de wiskundige coordinaten uitgerekend
+            // De pixel wordt vervolgens gekleurd naar de juiste kleur
 
             for (int i = 0; i < this.mandelbrotBM.Width; i++)
             {

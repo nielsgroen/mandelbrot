@@ -8,14 +8,14 @@ namespace mandelbrot
 {
     class Mandelbrot
     {
-        public Color ColorSet;
+        public Color ColorSet; // niet in gebruik
 
         public Mandelbrot(Color ColorSet)
         {
-            this.ColorSet = ColorSet;
+            this.ColorSet = ColorSet; // niet in gebruik
         }
 
-        public static Color calcColor(double x, double y, int maxIter, String colorScheme)
+        public static Color calcColor(double x, double y, int maxIter, String colorScheme) // returnt kleur van mandelbrotgetal van bijbehorende coordinaten
         {
             int colorInt = Mandelbrot.calcIter(x, y, maxIter);
             Color result;
@@ -73,7 +73,7 @@ namespace mandelbrot
         }
 
 
-        public static int calcIter(double x, double y, int maxIter)
+        public static int calcIter(double x, double y, int maxIter) // returnt het mandelbrotgetal
         {
             double a = 0, b = 0;
             int i;

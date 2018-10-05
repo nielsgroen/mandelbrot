@@ -22,6 +22,23 @@ using System.Drawing;
  *      
  *  - RenderForm.cs:
  *      * Hier staan de event listeners van het programma
+ *      * Hier wordt ook het grootste gedeelte van de logica uitgevoerd (m.b.v. Mandelbrot.cs)
+ *      
+ *   textbox1 -> center x
+ *   textbox2 -> center y
+ *   textbox3 -> scale
+ *   textbox4 -> max iteraties
+ * 
+ * 
+ * 
+ * Functionaliteit:
+ *  - Alle waarden kunnen bovenin worden veranderd.
+ *  - Deze kunnen bevestigd worden met de OK button
+ *  
+ *  - Door op de afbeelding te klikken worden de huidige waarden ook bevestigd
+ *  - Tevens wordt ook gezoomd met de door de gebruiker aangegeven zoomfactor
+ *  
+ *  - Voorbeeld: Na het selecteren van een ander kleurenschema, kan deze worden bevestigd door OK te klikken of te zoomen.
  * 
  */
 

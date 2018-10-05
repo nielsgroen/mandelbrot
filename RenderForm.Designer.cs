@@ -5,6 +5,7 @@ namespace mandelbrot
 {
     partial class RenderForm
     {
+
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -22,11 +23,7 @@ namespace mandelbrot
             }
             base.Dispose(disposing);
         }
-
-
  
-
-        
 
         /// <summary>
         /// Required method for Designer support - do not modify
