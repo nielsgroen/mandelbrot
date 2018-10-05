@@ -56,7 +56,7 @@ namespace mandelbrot
              */
             this.colorLB = new ListBox();
             this.colorLB.Size = new System.Drawing.Size(100, 67);
-            this.colorLB.Location = new System.Drawing.Point(570, 20);
+            this.colorLB.Location = new System.Drawing.Point(550, 20);
             this.Controls.Add(this.colorLB);
 
             this.colorLB.SelectionMode = SelectionMode.One;
