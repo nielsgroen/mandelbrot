@@ -15,7 +15,5 @@ namespace mandelbrot
             Application.Run(render);
         }
 
-        // hallo
-
     }
 }

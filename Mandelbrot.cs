@@ -15,13 +15,27 @@ namespace mandelbrot
             this.ColorSet = ColorSet;
         }
 
-        public Color calcColor(double x, double y, int maxIter)
+        public static Color calcColor(double x, double y, int maxIter)
         {
             int colorInt = Mandelbrot.calcIter(x, y, maxIter);
-            Color result = Color.Black;
-            if (colorInt % 2 == 0 && colorInt != maxIter)
+            Color result;
+            /* if (colorInt % 2 == 0 && colorInt != maxIter)
             {
                 result = Color.White;
+            } */
+            int[] highIterRGB = new int[] { 255, 0, 0 }; // defining the color set
+            int[] lowIterRGB = new int[] { 0, 255, 0 }; // idem dito
+            double a = (double) colorInt / maxIter; // calculate coefficient for convex combination of high and low arrays
+            int[] resultRGB = new int[3];
+            for (int i = 0; i < 3; i++)
+            {
+                resultRGB[i] = (int)(a * highIterRGB[i] + (1 - a) * lowIterRGB[i]);
+            }
+
+            result = Color.FromArgb(resultRGB[0], resultRGB[1], resultRGB[2]);
+            if (colorInt == maxIter)
+            {
+                result = Color.Black;
             }
             return result;
         }
