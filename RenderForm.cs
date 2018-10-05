@@ -15,14 +15,17 @@ namespace mandelbrot
         double scale, centerX, centerY, zoomFactor;
         Bitmap mandelbrotBM;
         PictureBox mandelbrotPB;
+        ListBox colorLB;
+        String colorScheme;
 
         public RenderForm()
         {
-            this.maxIter = 100;
+            this.maxIter = 300;
             this.scale = 0.01;
             this.centerX = 0;
             this.centerY = 0;
             this.zoomFactor = 2;
+            this.colorScheme = "Rainbow";
             InitializeComponent();
         }
 
@@ -62,6 +65,7 @@ namespace mandelbrot
             this.centerY = double.Parse(this.textBox2.Text);
             this.scale = double.Parse(this.textBox3.Text);
             this.maxIter = int.Parse(this.textBox4.Text);
+            this.colorScheme = this.colorLB.GetItemText(this.colorLB.SelectedItem);
             this.redrawBitmap();
         }
 
@@ -70,6 +74,7 @@ namespace mandelbrot
             this.centerX = (e.X - (double)this.mandelbrotBM.Width / 2) * this.scale + this.centerX;
             this.centerY = (e.Y - (double)this.mandelbrotBM.Height / 2) * this.scale + this.centerY;
             this.scale /= this.zoomFactor;
+            this.colorScheme = this.colorLB.GetItemText(this.colorLB.SelectedItem);
 
             this.textBox1.Text = this.centerX.ToString();
             this.textBox2.Text = this.centerY.ToString();
@@ -90,7 +95,7 @@ namespace mandelbrot
                 {
                     double x = (i - (double)this.mandelbrotBM.Width / 2) * this.scale + this.centerX;
                     double y = (j - (double)this.mandelbrotBM.Height / 2) * this.scale + this.centerY;
-                    this.mandelbrotBM.SetPixel(i, j, Mandelbrot.calcColor(x, y, this.maxIter));
+                    this.mandelbrotBM.SetPixel(i, j, Mandelbrot.calcColor(x, y, this.maxIter, this.colorScheme));
                 }
             }
 

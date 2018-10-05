@@ -51,6 +51,22 @@ namespace mandelbrot
             this.mandelbrotBM = new Bitmap(this.mandelbrotPB.Width / 2, this.mandelbrotPB.Height / 2);
             this.redrawBitmap();
 
+            /**
+             * The listbox
+             */
+            this.colorLB = new ListBox();
+            this.colorLB.Size = new System.Drawing.Size(100, 67);
+            this.colorLB.Location = new System.Drawing.Point(570, 20);
+            this.Controls.Add(this.colorLB);
+
+            this.colorLB.SelectionMode = SelectionMode.One;
+
+            this.colorLB.Items.Add("Rainbow");
+            this.colorLB.Items.Add("Grass");
+            this.colorLB.Items.Add("MaxIter");
+            this.colorLB.SetSelected(0, true);
+            this.colorScheme = this.colorLB.GetItemText(this.colorLB.SelectedItem);
+
 
 
             this.textBox1 = new System.Windows.Forms.TextBox();
