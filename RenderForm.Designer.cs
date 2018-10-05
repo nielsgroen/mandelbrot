@@ -5,15 +5,8 @@ namespace mandelbrot
 {
     partial class RenderForm
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -23,24 +16,17 @@ namespace mandelbrot
             base.Dispose(disposing);
         }
 
+        //
+        // Hier wordt met behulp van Visual Studio Designer de tools op de form getekend.
+        //
 
- 
-
-        
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            //
-            // PictureBox
-            //
+            /*
+            PictureBox
+            this.mandelbrotPB is the PictureBox holding the Bitmap : Image named this.mandelbrotBM
+            */
 
-            /**
-             * this.mandelbrotPB is the PictureBox holding the Bitmap : Image named this.mandelbrotBM
-             */
             this.mandelbrotPB = new PictureBox();
             this.mandelbrotPB.Size = new Size(1200, 1200);
             this.mandelbrotPB.Location = new Point(0, 100);
@@ -51,9 +37,10 @@ namespace mandelbrot
             this.mandelbrotBM = new Bitmap(this.mandelbrotPB.Width / 2, this.mandelbrotPB.Height / 2);
             this.redrawBitmap();
 
-            /**
-             * The listbox
-             */
+            /*
+            Listbox
+            */
+
             this.colorLB = new ListBox();
             this.colorLB.Size = new System.Drawing.Size(100, 67);
             this.colorLB.Location = new System.Drawing.Point(550, 20);
@@ -66,7 +53,6 @@ namespace mandelbrot
             this.colorLB.Items.Add("MaxIter");
             this.colorLB.SetSelected(0, true);
             this.colorScheme = this.colorLB.GetItemText(this.colorLB.SelectedItem);
-
 
 
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -207,7 +193,6 @@ namespace mandelbrot
 
         }
 
-        
 
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
