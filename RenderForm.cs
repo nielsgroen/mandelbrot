@@ -12,7 +12,7 @@ namespace mandelbrot
     public partial class RenderForm : Form
     {
         int maxIter;
-        double scale, centerX, centerY, zoomFactor;
+        double scale, centerX, centerY, zoomfactor;
         Bitmap mandelbrotBM;
         PictureBox mandelbrotPB;
         ListBox colorLB;
@@ -24,7 +24,7 @@ namespace mandelbrot
             this.scale = 0.01;
             this.centerX = 0;
             this.centerY = 0;
-            this.zoomFactor = 2;
+            this.zoomfactor = 2;
             this.colorScheme = "Rainbow";
             InitializeComponent();
         }
@@ -58,13 +58,17 @@ namespace mandelbrot
         {
 
         }
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
 
+        }
         private void button1_Click(object o, EventArgs e)
         {
             this.centerX = double.Parse(this.textBox1.Text);
             this.centerY = double.Parse(this.textBox2.Text);
             this.scale = double.Parse(this.textBox3.Text);
             this.maxIter = int.Parse(this.textBox4.Text);
+            this.zoomfactor = int.Parse(this.textBox5.Text);
             this.colorScheme = this.colorLB.GetItemText(this.colorLB.SelectedItem);
             this.redrawBitmap();
         }
@@ -73,7 +77,8 @@ namespace mandelbrot
         {
             this.centerX = (e.X - (double)this.mandelbrotBM.Width / 2) * this.scale + this.centerX;
             this.centerY = (e.Y - (double)this.mandelbrotBM.Height / 2) * this.scale + this.centerY;
-            this.scale /= this.zoomFactor;
+            this.textBox5.Text = this.zoomfactor.ToString();
+            this.scale /= this.zoomfactor;
             this.colorScheme = this.colorLB.GetItemText(this.colorLB.SelectedItem);
 
             this.textBox1.Text = this.centerX.ToString();

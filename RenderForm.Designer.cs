@@ -78,6 +78,8 @@ namespace mandelbrot
             this.label4 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBox1
@@ -164,6 +166,24 @@ namespace mandelbrot
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += this.button1_Click;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(709, 59);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(37, 17);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "zoom:";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(400, 56);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(135, 22);
+            this.textBox5.TabIndex = 6;
+            this.textBox5.Text = this.zoomfactor.ToString();
+            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            // 
             // RenderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -178,6 +198,8 @@ namespace mandelbrot
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.textBox5);
             this.Name = "RenderForm";
             this.Text = "Mandelbrot";
             this.ResumeLayout(false);
@@ -196,5 +218,7 @@ namespace mandelbrot
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox5;
     }
 }
