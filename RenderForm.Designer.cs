@@ -169,17 +169,17 @@ namespace mandelbrot
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(709, 59);
+            this.label5.Location = new System.Drawing.Point(670, 20);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(37, 17);
             this.label5.TabIndex = 7;
-            this.label5.Text = "zoom:";
+            this.label5.Text = "Zoom:";
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(400, 56);
+            this.textBox5.Location = new System.Drawing.Point(720, 20);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(135, 22);
+            this.textBox5.Size = new System.Drawing.Size(50, 22);
             this.textBox5.TabIndex = 6;
             this.textBox5.Text = this.zoomfactor.ToString();
             this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
