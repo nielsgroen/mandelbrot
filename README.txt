@@ -1,5 +1,9 @@
 
 /**
+ * Git Repository: https://github.com/nielsgroen/mandelbrot/
+ * Gemaakt door (Contributors): Gianno Cardose (student id: 6388345), Niels Groeneveld (student id: 6646255)
+ *
+ *
  * Als eerste een opmerking: De User Interface is in het Nederlands, maar de meeste code (behalve soms voor de UI) is in het Engels geschreven.
  * !!! Tweede opmerking: Voor het maken van de GUI was eerst de Visual Studio designer gebruikt. Maar daarna is er vanaf gestapt.
  * 
