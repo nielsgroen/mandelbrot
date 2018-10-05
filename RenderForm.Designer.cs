@@ -26,7 +26,7 @@ namespace mandelbrot
 
  
 
-        #region Windows Form Designer generated code
+        
 
         /// <summary>
         /// Required method for Designer support - do not modify
@@ -42,14 +42,30 @@ namespace mandelbrot
              * this.mandelbrotPB is the PictureBox holding the Bitmap : Image named this.mandelbrotBM
              */
             this.mandelbrotPB = new PictureBox();
-            this.mandelbrotPB.Size = new Size(1000, 1000);
-            this.mandelbrotPB.Location = new Point(10, 100);
+            this.mandelbrotPB.Size = new Size(1200, 1200);
+            this.mandelbrotPB.Location = new Point(0, 100);
             this.mandelbrotPB.MouseClick += this.mandelbrotPB_Click;
 
             this.Controls.Add(this.mandelbrotPB);
 
             this.mandelbrotBM = new Bitmap(this.mandelbrotPB.Width / 2, this.mandelbrotPB.Height / 2);
             this.redrawBitmap();
+
+            /**
+             * The listbox
+             */
+            this.colorLB = new ListBox();
+            this.colorLB.Size = new System.Drawing.Size(100, 67);
+            this.colorLB.Location = new System.Drawing.Point(570, 20);
+            this.Controls.Add(this.colorLB);
+
+            this.colorLB.SelectionMode = SelectionMode.One;
+
+            this.colorLB.Items.Add("Rainbow");
+            this.colorLB.Items.Add("Grass");
+            this.colorLB.Items.Add("MaxIter");
+            this.colorLB.SetSelected(0, true);
+            this.colorScheme = this.colorLB.GetItemText(this.colorLB.SelectedItem);
 
 
 
@@ -80,7 +96,7 @@ namespace mandelbrot
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 17);
             this.label1.TabIndex = 1;
-            this.label1.Text = "midden X:";
+            this.label1.Text = "Midden X:";
             // 
             // label2
             // 
@@ -89,7 +105,7 @@ namespace mandelbrot
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 17);
             this.label2.TabIndex = 3;
-            this.label2.Text = "midden Y:";
+            this.label2.Text = "Midden Y:";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // textBox2
@@ -108,7 +124,7 @@ namespace mandelbrot
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 17);
             this.label3.TabIndex = 5;
-            this.label3.Text = "schaal:";
+            this.label3.Text = "Schaal:";
             // 
             // textBox3
             // 
@@ -140,7 +156,7 @@ namespace mandelbrot
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(545, 55);
+            this.button1.Location = new System.Drawing.Point(709, 55);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(71, 23);
             this.button1.TabIndex = 8;
@@ -152,7 +168,7 @@ namespace mandelbrot
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1020, 1500);
+            this.ClientSize = new System.Drawing.Size(800, 840);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox4);
@@ -169,7 +185,7 @@ namespace mandelbrot
 
         }
 
-        #endregion
+        
 
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
